@@ -1,13 +1,8 @@
 package com.treino.web.demo;
 
-import com.treino.web.demo.domain.Categoria;
-import com.treino.web.demo.domain.Cidade;
-import com.treino.web.demo.domain.Estado;
-import com.treino.web.demo.domain.Produto;
-import com.treino.web.demo.repository.CategoriaRepository;
-import com.treino.web.demo.repository.CidadeRepository;
-import com.treino.web.demo.repository.EstadoRepository;
-import com.treino.web.demo.repository.ProdutoRepository;
+import com.treino.web.demo.domain.*;
+import com.treino.web.demo.domain.enums.TipoClient;
+import com.treino.web.demo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -29,6 +24,11 @@ public class DemoApplication implements CommandLineRunner {
 
 	@Autowired
 	private EstadoRepository estadoRepository;
+
+	@Autowired
+	private ClienteRepository clienteRepository;
+	@Autowired
+	private EnderecoRepository enderecoRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -67,6 +67,19 @@ public class DemoApplication implements CommandLineRunner {
 
 		estadoRepository.saveAll(Arrays.asList(est1,est2));
 		cidadeRepository.saveAll(Arrays.asList(c1,c2,c3));
+
+		Cliente cli1 = new Cliente(null, "Maria Silva", "maria@email.com", "123456789", TipoClient.PESSOAFISICA);
+
+		cli1.getTelefones().addAll(Arrays.asList("979456123","123456789"));
+
+		Endereco e1 = new Endereco(null, "Rua Flores","300", "Apto 203","Jardim","38220374", cli1, c1);
+		Endereco e2 = new Endereco(null, "Avenida Matos", "105", "Sala 800", "Centro", "38777012", cli1, c2);
+
+		cli1.getEnderecos().addAll(Arrays.asList(e1,e2));
+
+		clienteRepository.saveAll(Arrays.asList(cli1));
+		enderecoRepository.saveAll(Arrays.asList(e1,e2));
+
 	}
 }
 
