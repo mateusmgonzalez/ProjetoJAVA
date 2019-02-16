@@ -1,4 +1,4 @@
-package com.treino.web.demo.services;
+package com.treino.web.demo.services.exceptions;
 
 public class ObjectNotFoundException extends RuntimeException {
     private static final long serialVersionUId = 1L;

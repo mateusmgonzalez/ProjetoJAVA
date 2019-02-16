@@ -2,6 +2,7 @@ package com.treino.web.demo.services;
 
 import com.treino.web.demo.domain.Categoria;
 import com.treino.web.demo.repository.CategoriaRepository;
+import com.treino.web.demo.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.treino.web.demo.resources;
+package com.treino.web.demo.resources.exception;
 
-import com.treino.web.demo.services.ObjectNotFoundException;
+import com.treino.web.demo.services.exceptions.ObjectNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

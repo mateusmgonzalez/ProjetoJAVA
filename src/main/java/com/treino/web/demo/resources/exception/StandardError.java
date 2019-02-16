@@ -1,4 +1,4 @@
-package com.treino.web.demo.resources;
+package com.treino.web.demo.resources.exception;
 
 import java.io.Serializable;
 
