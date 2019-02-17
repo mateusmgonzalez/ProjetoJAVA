@@ -1,14 +1,15 @@
 package com.treino.web.demo.domain.enums;
 
-public enum TipoClient {
+public enum EstadoPagamento {
 
-    PESSOAFISICA(1, "Pessoa Física"),
-    PESSOAJURIDICA(2, "Pessoa Juridica");
+    PENDENTE(1, "Pendente"),
+    QUITADO(2, "Quitado"),
+    CANCELADO(3, "Cancelado");
 
     private int cod;
     private String descricao;
 
-    private TipoClient(int cod, String descricao){
+    private EstadoPagamento(int cod, String descricao){
         this.cod = cod;
         this.descricao = descricao;
     }
@@ -21,13 +22,13 @@ public enum TipoClient {
         return descricao;
     }
 
-    public static TipoClient toEnum(Integer cod){
+    public static EstadoPagamento toEnum(Integer cod){
         if (cod == null){
             return null;
         }
 
-        for (TipoClient x:
-             TipoClient.values()) {
+        for (EstadoPagamento x:
+                EstadoPagamento.values()) {
             if(cod.equals(x.getCod())){
                 return x;
             }
